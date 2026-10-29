@@ -46,7 +46,7 @@
       <div style="margin-top: 8px; color: #cbd5e1;">
         <strong>Sample Accounts in Local Preview:</strong>
         Student Roll: <code>2026CSE002</code> / Pass: <code>Student@123</code> |
-        Pending Student Roll: <code>2026CSE001</code> (Activate via OTP) |
+        Pending Student Roll: <code>2501200700001</code> (Activate via OTP) |
         Admin Roll: <code>ADMIN001</code> / Pass: <code>Admin@12345</code>
       </div>
     </section>
@@ -76,7 +76,7 @@
               id="login-roll"
               name="rollNumber"
               autocomplete="username"
-              placeholder="e.g. 2026CSE002"
+              placeholder="e.g. 2501200700001"
               required
             >
           </div>
@@ -145,7 +145,7 @@
           <div class="form-row">
             <div class="form-group">
               <label for="reg-roll">College Roll Number *</label>
-              <input type="text" id="reg-roll" placeholder="e.g. 2026CSE010" required>
+              <input type="text" id="reg-roll" placeholder="e.g. 2501200700002" required>
             </div>
             <div class="form-group">
               <label for="reg-name">Full Name *</label>
@@ -156,11 +156,11 @@
           <div class="form-row">
             <div class="form-group">
               <label for="reg-course">Course</label>
-              <input type="text" id="reg-course" value="B.Tech CSE" placeholder="e.g. B.Tech CSE">
+              <input type="text" id="reg-course" value="MBA 2nd Year" placeholder="e.g. MBA 2nd Year">
             </div>
             <div class="form-group">
               <label for="reg-semester">Semester</label>
-              <input type="text" id="reg-semester" value="6" placeholder="e.g. 6">
+              <input type="text" id="reg-semester" value="3" placeholder="e.g. 3">
             </div>
             <div class="form-group">
               <label for="reg-section">Section</label>
@@ -217,7 +217,7 @@
             <input
               type="text"
               id="recovery-roll"
-              placeholder="Enter your Roll Number (e.g. 2026CSE001)"
+              placeholder="Enter your Roll Number (e.g. 2501200700001)"
               required
             >
             <p class="field-hint">
@@ -307,20 +307,26 @@
         <div class="stats-grid">
           <div class="stat-box">
             <div class="stat-label">Student Name &amp; Roll</div>
-            <div class="stat-value" id="profile-roll-display" style="font-size: 18px;">â€”</div>
-            <div class="stat-meta" id="profile-name-display">â€”</div>
+            <div class="stat-value" id="profile-roll-display" style="font-size: 18px;">—</div>
+            <div class="stat-meta" id="profile-name-display">—</div>
           </div>
 
           <div class="stat-box">
             <div class="stat-label">Course / Sem / Section</div>
-            <div class="stat-value" id="profile-course-display" style="font-size: 18px;">â€”</div>
-            <div class="stat-meta" id="profile-email-display">â€”</div>
+            <div class="stat-value" id="profile-course-display" style="font-size: 18px;">—</div>
+            <div class="stat-meta" id="profile-email-display">—</div>
           </div>
 
           <div class="stat-box">
             <div class="stat-label">Today's Attendance (IST)</div>
             <div class="stat-value" id="today-status-text" style="font-size: 18px;">Not Marked</div>
             <div class="stat-meta" id="today-timestamp-text">Verify campus location below</div>
+          </div>
+
+          <div class="stat-box">
+            <div class="stat-label">Anti-Proxy Device ID</div>
+            <div class="stat-value" id="profile-device-id-display" style="font-size: 14px; font-family: monospace;">—</div>
+            <div class="stat-meta">Locked to 1 student roll number</div>
           </div>
         </div>
       </div>
@@ -345,12 +351,12 @@
           <div class="stats-grid" style="grid-template-columns: repeat(2, 1fr);">
             <div class="stat-box">
               <div class="stat-label">Distance from Centre</div>
-              <div class="stat-value" id="geo-distance-value">â€” m</div>
+              <div class="stat-value" id="geo-distance-value">— m</div>
               <div class="stat-meta" id="geo-radius-limit-meta">Max allowed: 200 m</div>
             </div>
             <div class="stat-box">
               <div class="stat-label">GPS Accuracy (&pm;)</div>
-              <div class="stat-value" id="geo-accuracy-value">â€” m</div>
+              <div class="stat-value" id="geo-accuracy-value">— m</div>
               <div class="stat-meta" id="geo-accuracy-limit-meta">Required: &le; 50 m</div>
             </div>
           </div>
@@ -409,7 +415,7 @@
       <div class="card">
         <div class="card-header">
           <div>
-            <h1 id="admin-dash-heading" class="card-title">ITM GIDA â€” GeoAttend Admin Console</h1>
+            <h1 id="admin-dash-heading" class="card-title">ITM GIDA Harsh GeoAttend Admin Console</h1>
             <p class="card-subtitle">Manage attendance reports, authorized student roster, geofence parameters, and security audit logs.</p>
           </div>
           <button type="button" id="btn-admin-refresh" class="btn btn-secondary btn-sm">Refresh Data</button>
@@ -469,11 +475,11 @@
               </div>
               <div class="form-group">
                 <label for="filter-course">Course</label>
-                <input type="text" id="filter-course" placeholder="e.g. B.Tech CSE">
+                <input type="text" id="filter-course" placeholder="e.g. MBA 2nd Year">
               </div>
               <div class="form-group">
                 <label for="filter-semester">Semester</label>
-                <input type="text" id="filter-semester" placeholder="e.g. 6">
+                <input type="text" id="filter-semester" placeholder="e.g. 3">
               </div>
               <div class="form-group">
                 <label for="filter-section">Section</label>
@@ -521,7 +527,7 @@
                 <div class="form-row">
                   <div class="form-group">
                     <label for="roster-roll">Roll Number *</label>
-                    <input type="text" id="roster-roll" placeholder="e.g. 2026CSE005" required>
+                    <input type="text" id="roster-roll" placeholder="e.g. 2501200700001" required>
                   </div>
                   <div class="form-group">
                     <label for="roster-name">Full Name *</label>
@@ -531,11 +537,11 @@
                 <div class="form-row">
                   <div class="form-group">
                     <label for="roster-course">Course</label>
-                    <input type="text" id="roster-course" placeholder="B.Tech CSE" value="B.Tech CSE">
+                    <input type="text" id="roster-course" placeholder="MBA 2nd Year" value="MBA 2nd Year">
                   </div>
                   <div class="form-group">
                     <label for="roster-semester">Semester</label>
-                    <input type="text" id="roster-semester" placeholder="6" value="6">
+                    <input type="text" id="roster-semester" placeholder="3" value="3">
                   </div>
                   <div class="form-group">
                     <label for="roster-section">Section</label>
@@ -681,6 +687,9 @@
     </div>
     <div style="margin-top: 4px;">
       Browser geolocation is an assistive verification control and can be affected by hardware/OS environment. All attendance records are validated on the server.
+    </div>
+    <div style="margin-top: 2px;">
+      Setup By Harsh
     </div>
   </footer>
 
